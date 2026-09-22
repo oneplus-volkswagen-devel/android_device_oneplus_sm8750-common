@@ -504,11 +504,13 @@ rmnet_sch.ko
 rmnet_wlan.ko
 msm_drm.ko
 frpc-adsprpc.ko
+stm_st54se_gpio.ko
 msm-eva.ko
 msm_ext_display.ko
 sync_fence.ko
 msm_hw_fence.ko
 msm-mmrm.ko
+stm_nfc_i2c.ko
 nxp-nci.ko
 qcedev-mod_dlkm.ko
 qcrypto-msm_dlkm.ko
