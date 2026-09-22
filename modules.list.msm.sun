@@ -122,3 +122,4 @@ oplus_mdmrst.ko
 olc.ko
 kernel_fb.ko
 qcom-cpufreq-hw.ko
+ipclite.ko
