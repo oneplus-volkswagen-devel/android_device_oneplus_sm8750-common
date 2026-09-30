@@ -458,6 +458,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.qti
 
+THERMAL_ENGINE_CONFIG ?= vendor/oneplus/sm8750-common/proprietary/vendor/etc/thermal-engine.conf
+PRODUCT_COPY_FILES += \
+    $(THERMAL_ENGINE_CONFIG):$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
+
 # Touch
 ifneq ($(TARGET_IS_TABLET),true)
 PRODUCT_PACKAGES += \
