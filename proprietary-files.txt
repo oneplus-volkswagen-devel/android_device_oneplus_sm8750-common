@@ -411,8 +411,6 @@ odm/lib64/libdolbyencoderprocessor.so
 odm/lib64/libdolbyottcameracontrol.so
 odm/lib64/libqcodec2_dolbydecoderfilter.so
 odm/lib64/libqcodec2_dolbyencoderfilter.so
-system_ext/lib64/libmmosal.so
-system_ext/lib64/libmmparser_lite.so
 vendor/bin/hw/qconfigservice
 vendor/bin/hw/vendor.qti.media.c2@1.0-service
 vendor/bin/hw/vendor.qti.media.c2audio@1.0-service
@@ -518,6 +516,46 @@ vendor/lib64/libqti-scenariod.so
 vendor/lib64/libqti-sslite.so
 vendor/lib64/libqti-util.so
 vendor/lib64/vendor.qti.hardware.perf2-V1-ndk.so
+
+# Qualcomm system AV and perf - AOSPA calcite (ThankYouMario 220d639a1222c5c5a818d01360482c93af048e16)
+system/etc/permissions/com.qualcomm.qti.Performance.xml|7976f2fd46b8d07814310cc957a70f829bdd6932
+system/etc/permissions/com.qualcomm.qti.UxPerformance.xml|d92749d80c5d956db8251b08ea6388d3f107a32c
+system/framework/QPerformance.jar;BOOT_JAR|f435690536d32c40983c683ebcddaa1276b6b3c3
+system/framework/QXPerformance.jar|f058ef9afc0cd4abd2a9f316c0dbc6c7e717909f|f058ef9afc0cd4abd2a9f316c0dbc6c7e717909f
+system/framework/UxPerformance.jar;BOOT_JAR|0bb8cf22670f98633a5f3dd6f2ac1e0308d0d518
+system/lib64/vendor.qti.MemHal-V1-ndk.so|7dbc267f244b7dc6f143539523d7bd6c414b4afc
+system/lib64/vendor.qti.hardware.perf2-V1-ndk.so;MODULE_SUFFIX=_system|4c547078cb39f36bb3aeae36b28edb95156d8318
+system_ext/app/PowerSaveMode/PowerSaveMode.apk|e4eee2099156eb83f98efd8c2cf32fcc3abb4038
+system_ext/app/workloadclassifier/workloadclassifier.apk|be45875ab4c9e36e0f5520281524b2f36a881b14
+system_ext/bin/perfservice|e39a986f174313a510bf3aae571ccc7c02400a37
+system_ext/etc/init/perfservice.rc|2f9292180ddafd8d7c093b24485ed80458331a29
+system_ext/etc/perf/scaler_params.pb|06a8139169a17a3bc9eb7390be79810f15205610
+system_ext/etc/perf/wlc_model.tflite|fc7235887f14831350bd6c65d4e22777b2426720
+system_ext/etc/seccomp_policy/perfservice.policy|f98343ccd1aa690b2f2e2dc51918a98c39cdaf44
+system_ext/lib64/extractors/libmmparserextractor.so|a0ffaec90ccc4d26292fa253250cfe3ec19808cb
+system_ext/lib64/libavenhancements.so|fac1bc558389d8f6148c56cc27da5dc4ec6594fb
+system_ext/lib64/libbeluga.so|cae639f0c38b87e98224a507730700888b242397
+system_ext/lib64/libcomposerextn.qti.so|bc0c6ab35c0c857b0b866caf59907d78315ea6f7
+system_ext/lib64/libdolphin.so|8b9d29002dd738c963fca002510d349416378205
+system_ext/lib64/liblayerext.qti.so|ea5fc767840f15b2cc4bbd7c3b36a9ea683d45d5
+system_ext/lib64/libmmosal.so|7e50ba998f1dea8850f981895a1968d5f6bd029d
+system_ext/lib64/libmmparser_lite.so|ed2d79c30335a767173f450b1d9d87f93a90e54a
+system_ext/lib64/libpenguin.so|e47b66d2ad6a46a16590f754b0ba87488a9148f6
+system_ext/lib64/libpenguin_impl.so|9dc23f6faa8e57e8c2423b4cec145bb74231ae84
+system_ext/lib64/libqspm-mem-utils.so|36a6e69d1b59c77d8c79ca59b045233487968f82
+system_ext/lib64/libqti-MemHal-client-system.so|33bb9cfaa474c69dfec8d45e39457899ca5ee147
+system_ext/lib64/libqti-at.so|8fcac099ee6294ad96db9bb71f2cf43996e39a38
+system_ext/lib64/libqti-iopd-client_system.so|36fb47fc479d22cf1cc13e63a58c5473d4dd347f
+system_ext/lib64/libqti-perfd-client_system.so|ac5c86b7f77378bdaa7356fab21aeac99f169389
+system_ext/lib64/libqti_performance.so|173db5f014b10bd5edc999d0332844a59fceee5b
+system_ext/lib64/libqti_workloadclassifiermodel.so|fc871610ce0afb3fe4191a1ae5726b4947af99b2
+system_ext/lib64/libskewknob_system.so|edad261237ce4efd7d4dabcc79b9deca1218c647
+system_ext/lib64/libsmomoconfig.qti.so|e77a22d97dc8066323d514421e31337cb3d1839a
+system_ext/lib64/vendor.qti.hardware.iop@2.0.so|056866a2ac6e687ce7f531723bcbe9017acb040b
+system_ext/lib64/vendor.qti.hardware.limits@1.0.so|70197976291b2ace5c376d9256bdedd4ee050eb5
+system_ext/lib64/vendor.qti.hardware.limits@1.1.so|130d32fb9a3c7cf3987a8658676b2922af38652f
+system_ext/lib64/vendor.qti.qspmhal-V1-ndk.so;MODULE_SUFFIX=_system|1e2296e0ce6ba807045bf26ec39dee25c5124fa4
+system_ext/lib64/vendor.qti.qspmhal@1.0.so|0957ec0af8f95fae050e628534353927eab8736b
 
 # Power-off alarm
 vendor/bin/hw/vendor.qti.hardware.alarm-service

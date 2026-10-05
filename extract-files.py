@@ -1,10 +1,16 @@
 #!/usr/bin/env -S PYTHONPATH=../../../tools/extract-utils python3
 #
 # SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-FileCopyrightText: Paranoid Android
 # SPDX-License-Identifier: Apache-2.0
 #
 
+from os import path, remove
+from shutil import move
+
+from extract_utils.file import File
 from extract_utils.fixups_blob import (
+    BlobFixupCtx,
     blob_fixup,
     blob_fixups_user_type,
 )
@@ -16,6 +22,8 @@ from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
 )
+from extract_utils.tools import android_root
+from extract_utils.utils import run_cmd
 
 namespace_imports = [
     'device/oneplus/sm8750-common',
@@ -31,6 +39,26 @@ namespace_imports = [
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
 
+
+# From AOSPA calcite extract_utils_qti/fixups_blob.py.
+def zipalign_impl(
+    ctx: BlobFixupCtx,
+    file: File,
+    file_path: str,
+    *args,
+    **kwargs,
+):
+    tmp_path = file_path + '.tmp'
+    move(file_path, tmp_path)
+    try:
+        run_cmd([
+            path.join(android_root, 'prebuilts/sdk/tools/linux/bin/zipalign'),
+            '-p', '-f', '4', tmp_path, file_path,
+        ])
+    finally:
+        remove(tmp_path)
+
+
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
@@ -41,9 +69,17 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.qccsyshal_aidl-V1-ndk',
         'vendor.qti.qccvndhal_aidl-V1-ndk',
     ): lib_fixup_vendor_suffix,
+    (
+        'vendor.qti.hardware.perf2-V1-ndk',
+        'vendor.qti.qspmhal-V1-ndk',
+    ): lambda lib, partition: (
+        f'{lib}_system' if partition in ('system', 'system_ext') else None
+    ),
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'system/framework/QXPerformance.jar': blob_fixup()
+        .call(zipalign_impl),
     'odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff': blob_fixup()
         .add_needed('libshims_aidl_fingerprint_v3.oplus.so'),
     (
